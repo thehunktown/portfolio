@@ -46,3 +46,26 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
+
+
+const skillIcons = document.querySelectorAll('.skill-icon');
+const container = document.getElementById('skills-container');
+
+function randomizePosition() {
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+
+  skillIcons.forEach((icon) => {
+    const randomX = Math.floor(Math.random() * (containerWidth - icon.offsetWidth));
+    const randomY = Math.floor(Math.random() * (containerHeight - icon.offsetHeight));
+    
+    icon.style.left = randomX + 'px';
+    icon.style.top = randomY + 'px';
+  });
+}
+
+// Call randomizePosition when the page loads
+window.onload = randomizePosition;
+
+// Optionally, randomize again on window resize
+window.onresize = randomizePosition;

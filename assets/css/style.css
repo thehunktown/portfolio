@@ -444,42 +444,45 @@ body {
   #SKILLS
 \*-----------------------------------*/
 
-.skills .section-title { margin-block-end: 20px; }
+.skills .section-title { 
+  margin-block-end: 20px; 
+}
 
-.skills .section-text { margin-block-end: 70px; }
+.skills .section-text { 
+  margin-block-end: 50px; /* Adjusted to make it look cleaner */
+}
 
-.skills-list {
+.skills-container {
   display: grid;
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid layout */
+  gap: 30px; /* Space between icons */
+  justify-items: center; /* Center icons horizontally */
+  align-items: center; /* Center icons vertically */
+  padding: 20px; /* Add padding for better look */
 }
 
-.skills-item .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-block-end: 10px;
+.skill-icon {
+  font-size: 60px; /* Adjust icon size */
+  color: var(--primary-color, #f0f0f0); /* Default icon color */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.skills-title,
-.skills-data {
-  color: var(--white);
-  font-size: var(--fs-5);
-  font-family: var(--ff-barlow);
-  font-weight: var(--fw-600);
+.skill-icon:hover {
+  transform: scale(1.2); /* Hover effect to enlarge */
+  color: var(--hover-color, #ff6347); /* Change color on hover */
 }
 
-.skills-progress-box {
-  background-color: var(--white);
-  height: 8px;
-  border-radius: var(--radius-10);
+/* Make sure the section scales well on smaller devices */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Reduce icon size on smaller screens */
+    gap: 20px; /* Adjust spacing for mobile */
+  }
+  
+  .skill-icon {
+    font-size: 50px; /* Adjust icon size for mobile */
+  }
 }
-
-.skills-progress {
-  background-color: var(--orange-soda);
-  height: 100%;
-  border-radius: inherit;
-}
-
 
 
 
